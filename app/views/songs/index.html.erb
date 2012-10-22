@@ -1,14 +1,38 @@
-<h1>MP3 Streaming</h1>
+<header>
+  <h1>MP3 Streaming Demo</h1>
+</header>
 
-<ul>  
-<% @songs.each do |song| %>  
-   <li><%= song.key %> - <%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></li>  
-<% end %>  
-</ul>
+<div class="clear"></div>
 
-<h2>Upload a new MP3:</h2>  
-<%= form_tag upload_path, :method => "post", :multipart => true do %>  
-  <%= file_field_tag "mp3file" %>  
-  <%= submit_tag "Upload" %>  
-<% end %>
+<section id="sidebar">
+  <h2>HTML5 Audio Player</h2>
+  <section id="audio">
+    No song is currently playing.
+  </section>
+  <h2>Upload a Song</h2>
+  <%= form_tag upload_path, :method => "post", :multipart => true do %>
+    <%= file_field_tag "mp3file" %><br />
+    <%= submit_tag "Upload" %>
+  <% end %>
+</section>
 
+<section id="main">
+  <h2>Song List</h2>
+  <table>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.key %></td>
+        <td><%= link_to "HTML5 Audio", download_url_for(song.key), :class => "html5" %></td>
+        <!-- <td><%= link_to "Download", download_url_for(song.key) %></td> -->
+        <td><%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
+
+<div class="clear"></div>
+
+<p>This demo stores MP3 musics on Amazon S3 service and playes it
+  back on HTML5 build-in audio player.  Reference: <a href="http://net.tutsplus.com/tutorials/create-a-simple-music-streaming-app-with-ruby-on-rails/">Create
+    a Simple Music Streaming App with Ruby on Rails</a></p>
+<p>Developed by SUN Li, 22nd Oct. 2012</p>
