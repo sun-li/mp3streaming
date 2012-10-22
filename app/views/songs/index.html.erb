@@ -1,0 +1,14 @@
+<h1>MP3 Streaming</h1>
+
+<ul>  
+<% @songs.each do |song| %>  
+   <li><%= song.key %> - <%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></li>  
+<% end %>  
+</ul>
+
+<h2>Upload a new MP3:</h2>  
+<%= form_tag upload_path, :method => "post", :multipart => true do %>  
+  <%= file_field_tag "mp3file" %>  
+  <%= submit_tag "Upload" %>  
+<% end %>
+
