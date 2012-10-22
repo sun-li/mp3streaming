@@ -17,12 +17,11 @@
 </section>
 
 <section id="main">
-  <h2>Song List</h2>
+  <h2>Song List (Click to Play)</h2>
   <table>
     <% @songs.each do |song| %>
       <tr>
-        <td><%= song.key %></td>
-        <td><%= link_to "HTML5 Audio", download_url_for(song.key), :class => "html5" %></td>
+        <td><%= link_to song.key, download_url_for(song.key), :class => "html5" %></td>
         <!-- <td><%= link_to "Download", download_url_for(song.key) %></td> -->
         <td><%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></td>
       </tr>
