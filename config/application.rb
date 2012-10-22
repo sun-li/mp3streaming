@@ -63,7 +63,5 @@ module Mp3app
       :access_key_id => 'AKIAJEGLAT42VMCPK3XA',
       :secret_access_key => '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'
       )
-
-
   end
 end

@@ -7,7 +7,6 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
-
 gem 'aws-s3', :require => 'aws/s3'
 
 
