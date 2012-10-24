@@ -22,7 +22,6 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= link_to song.key, download_url_for(song.key), :class => "html5" %></td>
-        <!-- <td><%= link_to "Download", download_url_for(song.key) %></td> -->
         <td><%= link_to "Delete",  "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></td>
       </tr>
     <% end %>
@@ -31,7 +30,7 @@
 
 <div class="clear"></div>
 
-<p>This demo stores MP3 musics on Amazon S3 service and playes it
+<p>This Ruby on Rails app stores MP3 musics on Amazon S3 service and playes it
   back on HTML5 build-in audio player.  Reference: <a href="http://net.tutsplus.com/tutorials/create-a-simple-music-streaming-app-with-ruby-on-rails/">Create
     a Simple Music Streaming App with Ruby on Rails</a></p>
 <p>Developed by SUN Li, 22nd Oct. 2012</p>
